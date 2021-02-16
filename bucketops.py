@@ -11,12 +11,18 @@ def s3_client():
 
 def create_bucket(bucket_name):
     return s3_client().create_bucket(
+        ACL='private',
         Bucket=bucket_name,
         CreateBucketConfiguration={
             'LocationConstraint': 'eu-west-2'
         }
     )
 
+
+def create_bucket_policy():
+    bucket_policy = {
+
+    }
 
 if __name__ == '__main__':
     print(create_bucket(BUCKET_NAME))
